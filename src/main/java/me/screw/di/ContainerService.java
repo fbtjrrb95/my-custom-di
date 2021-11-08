@@ -7,12 +7,12 @@ public class ContainerService {
 
     public static <T> T getObject(Class<T> classType) {
         try {
-            T instance = classType.getConstructor(null).newInstance();
+            T instance = classType.getConstructor().newInstance();
             Arrays.stream(classType.getDeclaredFields()).forEach(f -> {
-                Inject annotation = f.getAnnotation(Inject.class);
+                Bean annotation = f.getAnnotation(Bean.class);
                 if (annotation != null) {
                     try {
-                        Object fieldInstance = f.getType().getConstructor(null).newInstance();
+                        Object fieldInstance = f.getType().getConstructor().newInstance();
                         f.setAccessible(true);
                         f.set(instance, fieldInstance);
                     } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {

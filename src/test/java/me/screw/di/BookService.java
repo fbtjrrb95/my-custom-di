@@ -2,7 +2,7 @@ package me.screw.di;
 
 public class BookService {
 
-    @Inject
+    @Bean
     private BookRepository bookRepository;
 
     public BookRepository getBookRepository() {
