@@ -2,7 +2,7 @@ package me.screw.di;
 
 public class BookService {
 
-    @Bean
+    @Autowired
     private BookRepository bookRepository;
 
     public BookRepository getBookRepository() {

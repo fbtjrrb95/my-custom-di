@@ -9,7 +9,7 @@ public class ContainerService {
         try {
             T instance = classType.getConstructor().newInstance();
             Arrays.stream(classType.getDeclaredFields()).forEach(f -> {
-                Bean annotation = f.getAnnotation(Bean.class);
+                Autowired annotation = f.getAnnotation(Autowired.class);
                 if (annotation != null) {
                     try {
                         Object fieldInstance = f.getType().getConstructor().newInstance();
